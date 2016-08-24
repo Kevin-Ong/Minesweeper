@@ -59,6 +59,9 @@ public class Board {
 
     public void display(boolean lose) {
         System.out.print("  ");
+        if (row >= 10) {
+            System.out.print(" ");
+        }
         for (int i = 0; i < col; i++) {
             System.out.print(i + " ");
         }
@@ -96,7 +99,7 @@ public class Board {
     }
 
     public boolean open(int x, int y) {
-        if (squares[y][x].checkFlag()) {
+        if (squares[y][x].checkFlag() || squares[y][x].checkIfOpen()) {
             return true;
         }
         
