@@ -59,15 +59,24 @@ public class Board {
 
     public void display(boolean lose) {
         System.out.print("  ");
+        if (col > 9) {
+            if (row >= 10) {
+                System.out.print(" ");
+            }
+            for (int i = 0; i < col; i++) {
+                System.out.print((i / 10 == 0 ? " " : i / 10) + " ");
+            }
+            System.out.println();
+        }
         if (row >= 10) {
-            System.out.print(" ");
+            System.out.print("   ");
         }
         for (int i = 0; i < col; i++) {
-            System.out.print(i + " ");
+            System.out.print(i % 10 + " ");
         }
-        
-        System.out.println("");
-            
+
+        System.out.println();
+
         for (int i1 = 0; i1 < row; i1++) {
             System.out.print(i1 + " ");
             if (i1 < 10 && row >= 10) {
@@ -93,7 +102,7 @@ public class Board {
                 }
                 System.out.print(" ");
             }
-            System.out.println("");
+            System.out.println();
         }
         System.out.println("Squares Left: " + squaresLeft);
     }
